@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PeakForm Coaching</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="logo">PeakForm Coaching</div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Programs</a>
+      <a href="#doctors">Coaches</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="btn-primary desktop-only">Start Coaching</button>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>
+        Transform Your Body<br />
+        With Expert Fitness Coaching
+      </h1>
+      <p>Personalized training, sustainable nutrition, and proven systems 
+        designed to help you build strength, lose fat, and stay consistent—
+        without extreme diets or burnout.</p>
+      <button class="btn-large">Get Your Free Strategy Call</button>
+    </div>
+
+    <div class="hero-image">
+      <img
+        src="https://i.insider.com/5b43ccf31335b831008b4c1c?width=1300&format=jpeg&auto=webp"
+        alt="Dental Clinic"
+      />
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services">
+    <h2>Coaching Programs Built for Results</h2>
+
+    <div class="service-grid">
+      <div class="card">
+        🏋️
+          <h3>1-on-1 Coaching</h3>
+          <p>Fully personalized workouts and accountability.</p>
+      </div>
+
+      <div class="card">
+          🥗
+          <h3>Nutrition Guidance</h3>
+          <p>Simple, sustainable meal strategies.</p>
+      </div>
+
+      <div class="card">
+        📈
+        <h3>Progress Tracking</h3>
+        <p>Clear metrics to keep you motivated.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+<section id="about">
+  <h2>About PeakForm Coaching</h2>
+
+  <p class="about-intro">
+    PeakForm Coaching helps busy people build strong, confident bodies using
+    science-based training and simple habits that actually fit real life.
+  </p>
+
+  <div class="features">
+    <div class="feature">
+      <span class="icon">💪</span>
+      <h3>Custom Training Plans</h3>
+      <p>Programs built around your goals, schedule, and experience level.</p>
+    </div>
+
+    <div class="feature">
+      <span class="icon">🥗</span>
+      <h3>Realistic Nutrition</h3>
+      <p>No extreme diets—just sustainable nutrition you can stick to.</p>
+    </div>
+
+    <div class="feature">
+      <span class="icon">📅</span>
+      <h3>Weekly Accountability</h3>
+      <p>Regular check-ins to keep you consistent and progressing.</p>
+    </div>
+
+    <div class="feature">
+      <span class="icon">📈</span>
+      <h3>Proven Coaching System</h3>
+      <p>A structured system refined through real client results.</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ================= DOCTORS ================= -->
+  <section id="doctors">
+     <h2>Certified Coaches Who Get Results</h2>
+
+    <div class="doctor-grid">
+      <div class="doctor">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Doctor" />
+        <h4>Alex Morgan</h4>
+        <span>Strength Coach</span>
+      </div>
+
+      <div class="doctor">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Doctor" />
+         <h4>Jordan Lee</h4>
+        <span>Nutrition Coach</span>
+      </div>
+
+      <div class="doctor">
+        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Doctor" />
+          <h4>Chris Nolan</h4>
+        <span>Performance Coach</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIAL ================= -->
+  <section class="testimonials">
+    <h2>Client Success Stories</h2>
+    <div class="testimonial-container">
+        <div class="testimonial">
+        ⭐⭐⭐⭐⭐
+        <p>“I’m stronger, leaner, and more confident than ever.”</p>
+        <strong>— Jamie R.</strong>
+        </div>
+        <div class="testimonial">
+        ⭐⭐⭐⭐⭐
+        <p>“The first program I’ve actually stuck with.”</p>
+        <strong>— Taylor M.</strong>
+        </div>
+        <div class="testimonial">
+        ⭐⭐⭐⭐⭐
+        <p>“Simple, effective, and life-changing.”</p>
+        <strong>— Chris D.</strong>
+        </div>
+    </div>
+    
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="contact">
+    <p>© 2025 Lume Dental Clinic. All rights reserved.</p>
+  </footer>
+
+  <!-- ================= APPOINTMENT MODAL ================= -->
+  <div class=
+  "modal" id="appointmentModal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h3>Book Your Free Strategy Call</h3>
+
+      <form id="appointmentForm">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="tel" placeholder="Phone Number" required />
+
+        <input type="date" id="datePicker" required />
+
+        <div class="slots" id="timeSlots"></div>
+
+        <select required>
+          <option value="">Select Goal</option>
+          <option>Fat Loss</option>
+          <option>Muscle Building</option>
+          <option>General Fitness</option>
+        </select>
+
+        <button type="submit" class="btn-large">
+       Reserve My Spot
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("e7R7kSAq67Y8B2FZ4");
+</script>
+
+</body>
+</html>
