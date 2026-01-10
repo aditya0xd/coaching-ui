@@ -1,12 +1,12 @@
+import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 interface HeroProps {
-  onOpenBooking: () => void;
   name: string;
 }
 
-export function Hero({ onOpenBooking, name }: HeroProps) {
+export function Hero({ name }: HeroProps) {
   return (
     <section className="container mx-auto px-5 md:px-12 py-12 md:py-24 flex flex-col md:flex-row items-center gap-10 md:gap-20">
       <div className="flex-1 text-center md:text-left space-y-6">
@@ -21,17 +21,19 @@ export function Hero({ onOpenBooking, name }: HeroProps) {
           No crash diets. No BS.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 items-center md:items-start transition-all">
-          <Button variant="large" onClick={onOpenBooking} className="w-full sm:w-auto text-lg px-8 py-6 h-auto shadow-2xl shadow-primary/20">
-            Get Your Custom Plan
-          </Button>
-          <a 
+          <Link href="?booking=true" className="w-full sm:w-auto" scroll={false}>
+            <Button variant="large" className="w-full sm:w-auto text-lg px-8 py-6 h-auto shadow-2xl shadow-primary/20">
+              Get Your Custom Plan
+            </Button>
+          </Link>
+          <Link 
             href="#transformation"
             className="w-full sm:w-auto"
           >
             <Button variant="outline" className="w-full sm:w-auto text-lg px-8 py-6 h-auto border-2">
               See Client Results
             </Button>
-          </a>
+          </Link>
         </div>
         <div className="flex flex-col sm:flex-row gap-6 items-center md:items-start pt-2">
           <div className="flex items-center">

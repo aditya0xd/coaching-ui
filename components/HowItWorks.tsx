@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface HowItWorksProps {
-  onOpenBooking: () => void;
 }
 
-export function HowItWorks({ onOpenBooking }: HowItWorksProps) {
+export function HowItWorks({ }: HowItWorksProps) {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
 
   const steps = [
@@ -90,9 +90,11 @@ export function HowItWorks({ onOpenBooking }: HowItWorksProps) {
       </div>
 
       <div className="text-center">
-        <Button variant="large" onClick={onOpenBooking} className="text-lg px-10 py-6 h-auto whitespace-normal break-words text-center">
-          Start Your Transformation Today
-        </Button>
+        <Link href="?booking=true" scroll={false}>
+          <Button variant="large" className="text-lg px-10 py-6 h-auto whitespace-normal break-words text-center">
+            Start Your Transformation Today
+          </Button>
+        </Link>
       </div>
     </section>
   );

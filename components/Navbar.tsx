@@ -7,14 +7,24 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "./ModeToggle";
 
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
+
 interface NavbarProps {
-  onOpenBooking: () => void;
   name: string;
 }
 
-export function Navbar({ onOpenBooking, name }: NavbarProps) {
+export function Navbar({ name }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const handleOpenBooking = () => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("booking", "true");
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,7 +86,7 @@ export function Navbar({ onOpenBooking, name }: NavbarProps) {
         <div className="flex items-center gap-2">
           <ModeToggle />
           <Button
-            onClick={onOpenBooking}
+            onClick={handleOpenBooking}
             className="hidden md:inline-flex"
           >
             Apply for Coaching
@@ -125,7 +135,7 @@ export function Navbar({ onOpenBooking, name }: NavbarProps) {
           ))}
         </nav>
         <Button onClick={() => {
-            onOpenBooking();
+            handleOpenBooking();
             setIsOpen(false);
         }} className="mt-4 w-full">
           Apply for Coaching

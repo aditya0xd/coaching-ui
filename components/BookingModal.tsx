@@ -1,14 +1,14 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { X } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 interface BookingModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+  onClose?: () => void;
 }
 
 const TIME_SLOTS = [
@@ -22,11 +22,25 @@ const TIME_SLOTS = [
   "05:00 PM",
 ];
 
-export function BookingModal({ isOpen, onClose }: BookingModalProps) {
+export function BookingModal({ onClose }: BookingModalProps) {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+  
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  
+  const isOpen = searchParams.get("booking") === "true";
+
+  const handleClose = () => {
+    // Navigate back to the same page without the search param
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete("booking");
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    if (onClose) onClose();
+  };
 
   if (!isOpen) return null;
 
@@ -71,7 +85,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
       formRef.current.reset();
       setSelectedDate("");
       setSelectedSlot(null);
-      onClose();
+      handleClose();
     } catch (error) {
       console.error("EmailJS Error:", error);
       alert("❌ Failed to send email. Try again.");
@@ -85,7 +99,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-primary/50 backdrop-blur-sm transition-opacity"
-        onClick={onClose}
+        onClick={handleClose}
         aria-hidden="true"
       />
 
@@ -97,7 +111,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
         className="relative w-full max-w-[420px] bg-card rounded-3xl p-6 shadow-2xl animate-in fade-in zoom-in-95 duration-200 border border-border"
       >
         <button
-          onClick={onClose}
+          onClick={handleClose}
           aria-label="Close booking modal"
           className="absolute top-5 right-5 text-muted-foreground hover:text-red-500 transition-colors"
         >

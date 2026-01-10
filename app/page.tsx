@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from "react";
+import { Suspense } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
@@ -21,16 +19,11 @@ import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
   return (
     <main id="main-content" className="min-h-screen relative">
-      <Navbar onOpenBooking={openModal} name="Samuel Fernandez" />
+      <Navbar name="Samuel Fernandez" />
       
-      <Hero onOpenBooking={openModal} name="Samuel Fernandez"/>
+      <Hero name="Samuel Fernandez"/>
       <TrustLogos />
       
       <div className="space-y-0">
@@ -43,15 +36,17 @@ export default function Home() {
         <Services />
         <Testimonials />
         <LeadMagnet />
-        <HowItWorks onOpenBooking={openModal} />
+        <HowItWorks />
         <About name="Samuel Fernandez" />
         <FAQ />
-        <FinalCTA onOpenBooking={openModal} />
+        <FinalCTA />
       </div>
 
       <Footer />
 
-      <BookingModal isOpen={isModalOpen} onClose={closeModal} />
+      <Suspense fallback={null}>
+        <BookingModal />
+      </Suspense>
     </main>
   );
 }

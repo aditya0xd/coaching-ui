@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface FinalCTAProps {
-  onOpenBooking: () => void;
 }
 
-export function FinalCTA({ onOpenBooking }: FinalCTAProps) {
+export function FinalCTA({ }: FinalCTAProps) {
   return (
     <section className="bg-slate-950 py-20 relative overflow-hidden">
       {/* Decorative Elements */}
@@ -22,13 +22,14 @@ export function FinalCTA({ onOpenBooking }: FinalCTAProps) {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
-            <Button 
-              variant="large" 
-              onClick={onOpenBooking}
-              className="bg-white text-slate-950 hover:bg-slate-100 text-lg px-10 py-6 h-auto shadow-xl whitespace-normal break-words border-none"
-            >
-              Book Your Free Strategy Call
-            </Button>
+            <Link href="?booking=true" scroll={false}>
+              <Button 
+                variant="large" 
+                className="bg-white text-slate-950 hover:bg-slate-100 text-lg px-10 py-6 h-auto shadow-xl whitespace-normal break-words border-none"
+              >
+                Book Your Free Strategy Call
+              </Button>
+            </Link>
             <a 
               href="#transformation"
               className="text-white underline underline-offset-4 hover:text-accent transition-colors font-medium whitespace-normal decoration-white/30"

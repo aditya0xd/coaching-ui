@@ -1,5 +1,4 @@
 import { XCircle, ArrowRight } from "lucide-react";
-import { Button } from "./ui/button";
 
 export function Problem() {
   const problems = [
