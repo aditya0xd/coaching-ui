@@ -23,7 +23,7 @@ export function Problem() {
           <ul className="space-y-4">
             {problems.map((p, i) => (
               <li key={i} className="flex items-center gap-3 text-foreground/70 font-medium text-base md:text-lg">
-                <XCircle className="w-4 h-4 text-accent/40 flex-shrink-0" />
+                <XCircle className="w-5 h-5 text-accent/40 flex-shrink-0 mt-1" aria-hidden="true" />
                 {p}
               </li>
             ))}

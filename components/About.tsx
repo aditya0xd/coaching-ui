@@ -48,10 +48,18 @@ export function About({ name }: AboutProps) {
         {features.map((feature, index) => {
           const isActive = activeIdx === index;
           return (
-            <div
+            <button
               key={feature.title}
               onClick={() => setActiveIdx(isActive ? null : index)}
-              className={`rounded-[18px] p-8 transition-all duration-300 border cursor-pointer
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setActiveIdx(isActive ? null : index);
+                }
+              }}
+              aria-label={`Feature: ${feature.title}. Click for more details.`}
+              aria-expanded={isActive}
+              className={`rounded-[18px] p-8 transition-all duration-300 border cursor-pointer block w-full text-center focus-visible:ring-2 focus-visible:ring-accent outline-none
                 ${isActive ? 'bg-card shadow-xl -translate-y-2 border-border' : 'bg-card/50 border-transparent md:hover:bg-card md:hover:shadow-xl md:hover:-translate-y-2'}
               `}
             >
@@ -64,7 +72,7 @@ export function About({ name }: AboutProps) {
               <p className="text-muted-foreground text-base leading-relaxed whitespace-normal">
                 {feature.description}
               </p>
-            </div>
+            </button>
           );
         })}
       </div>

@@ -86,18 +86,25 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
       <div 
         className="absolute inset-0 bg-primary/50 backdrop-blur-sm transition-opacity"
         onClick={onClose}
+        aria-hidden="true"
       />
 
       {/* Modal Content */}
-      <div className="relative w-full max-w-[420px] bg-card rounded-3xl p-6 shadow-2xl animate-in fade-in zoom-in-95 duration-200 border border-border">
+      <div 
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        className="relative w-full max-w-[420px] bg-card rounded-3xl p-6 shadow-2xl animate-in fade-in zoom-in-95 duration-200 border border-border"
+      >
         <button
           onClick={onClose}
+          aria-label="Close booking modal"
           className="absolute top-5 right-5 text-muted-foreground hover:text-red-500 transition-colors"
         >
           <X size={24} />
         </button>
 
-        <h3 className="text-xl font-bold mb-6 text-foreground pr-8">
+        <h3 id="modal-title" className="text-xl font-bold mb-6 text-foreground pr-8">
           Book Your Free Strategy Call
         </h3>
 

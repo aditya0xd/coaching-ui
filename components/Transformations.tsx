@@ -87,9 +87,17 @@ export function Transformations() {
           const isActive = activeIdx === index;
           return (
             <SwiperSlide key={index}>
-              <div 
+              <button 
                 onClick={() => setActiveIdx(isActive ? null : index)}
-                className="relative aspect-square w-full bg-muted rounded-none overflow-hidden border border-border group cursor-pointer"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setActiveIdx(isActive ? null : index);
+                  }
+                }}
+                aria-label={`View transformation details for ${item.name}: ${item.result}`}
+                aria-expanded={isActive}
+                className="relative aspect-square w-full bg-muted rounded-none overflow-hidden border border-border group cursor-pointer focus-visible:ring-2 focus-visible:ring-accent outline-none"
               >
                 <Image
                   src={item.image}
@@ -125,7 +133,7 @@ export function Transformations() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </button>
             </SwiperSlide>
           );
         })}

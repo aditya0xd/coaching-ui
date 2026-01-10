@@ -27,7 +27,7 @@ export default function Home() {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <main className="min-h-screen relative">
+    <main id="main-content" className="min-h-screen relative">
       <Navbar onOpenBooking={openModal} name="Samuel Fernandez" />
       
       <Hero onOpenBooking={openModal} name="Samuel Fernandez"/>

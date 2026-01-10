@@ -47,7 +47,7 @@ export function FAQ() {
           >
             <summary className="flex items-start justify-between gap-4 font-semibold text-primary list-none whitespace-normal">
               <span className="flex-1">{faq.question}</span>
-              <HelpCircle className="w-5 h-5 text-accent flex-shrink-0 group-open:rotate-180 transition-transform" />
+              <HelpCircle className="w-5 h-5 text-accent flex-shrink-0 group-open:rotate-180 transition-transform" aria-hidden="true" />
             </summary>
             <p className="mt-4 text-muted-foreground text-base leading-relaxed whitespace-normal">
               {faq.answer}

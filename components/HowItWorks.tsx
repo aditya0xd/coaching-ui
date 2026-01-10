@@ -49,10 +49,18 @@ export function HowItWorks({ onOpenBooking }: HowItWorksProps) {
         {steps.map((step, index) => {
           const isActive = activeIdx === index;
           return (
-            <div 
+            <button 
               key={index} 
               onClick={() => setActiveIdx(isActive ? null : index)}
-              className="relative cursor-pointer group"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setActiveIdx(isActive ? null : index);
+                }
+              }}
+              aria-label={`Step ${step.number}: ${step.title}. Click for details.`}
+              aria-expanded={isActive}
+              className="relative cursor-pointer group block w-full text-center focus-visible:ring-2 focus-visible:ring-accent outline-none rounded-2xl"
             >
               {/* Connector Line (hidden on mobile, shown on desktop) */}
               {index < steps.length - 1 && (
@@ -76,7 +84,7 @@ export function HowItWorks({ onOpenBooking }: HowItWorksProps) {
                   {step.description}
                 </p>
               </div>
-            </div>
+            </button>
           );
         })}
       </div>

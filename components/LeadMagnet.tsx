@@ -58,9 +58,17 @@ export function LeadMagnet() {
     <section className="container mx-auto px-5 md:px-12 py-16 md:py-32 max-w-7xl">
       <div className="bg-card border border-border rounded-[24px] md:rounded-[48px] overflow-hidden shadow-2xl flex flex-col lg:flex-row lg:items-stretch">
         {/* Image / Mockup Side */}
-        <div 
+        <button 
           onClick={() => setIsImageActive(!isImageActive)}
-          className="w-full lg:w-2/5 bg-muted/5 p-10 md:p-16 lg:p-20 flex items-center justify-center relative overflow-hidden group border-b lg:border-b-0 lg:border-r border-border cursor-pointer"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              setIsImageActive(!isImageActive);
+            }
+          }}
+          aria-label="Toggle blueprint preview image animation"
+          aria-expanded={isImageActive}
+          className="w-full lg:w-2/5 bg-muted/5 p-10 md:p-16 lg:p-20 flex items-center justify-center relative overflow-hidden group border-b lg:border-b-0 lg:border-r border-border cursor-pointer focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-accent outline-none"
         >
           <div className={`absolute inset-0 blur-3xl rounded-full scale-150 transition-colors
             ${isImageActive ? 'bg-accent/10' : 'bg-accent/5 md:group-hover:bg-accent/10'}
@@ -77,7 +85,7 @@ export function LeadMagnet() {
               priority
             />
           </div>
-        </div>
+        </button>
 
         {/* Content Side */}
         <div className="w-full lg:w-3/5 p-8 md:p-16 lg:p-24 flex flex-col justify-center space-y-10">

@@ -48,10 +48,18 @@ export function WhoIsThisFor() {
           {audiences.map((audience, index) => {
             const isActive = activeIdx === index;
             return (
-              <div
+              <button
                 key={index}
                 onClick={() => setActiveIdx(isActive ? null : index)}
-                className={`relative group overflow-hidden bg-zinc-900 ${audience.height} transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer`}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setActiveIdx(isActive ? null : index);
+                  }
+                }}
+                aria-label={`Audience Profile: ${audience.title}. Click for more details.`}
+                aria-expanded={isActive}
+                className={`relative group overflow-hidden bg-zinc-900 ${audience.height} transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer block w-full text-left focus-visible:ring-2 focus-visible:ring-accent outline-none ring-inset`}
               >
                 <Image
                   src={audience.image}
@@ -85,7 +93,7 @@ export function WhoIsThisFor() {
                 <div className={`absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-accent transition-all duration-700 m-4
                   ${isActive ? 'border-accent/50 opacity-100' : 'border-accent/0 md:group-hover:border-accent/50 opacity-0 md:group-hover:opacity-100'}
                 `} />
-              </div>
+              </button>
             );
           })}
         </div>

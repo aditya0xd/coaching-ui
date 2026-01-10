@@ -35,10 +35,18 @@ export function Testimonials() {
         {testimonials.map((t, i) => {
           const isActive = activeIdx === i;
           return (
-            <div
+            <button
               key={i}
               onClick={() => setActiveIdx(isActive ? null : i)}
-              className={`rounded-2xl p-8 transition-all duration-300 border cursor-pointer
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setActiveIdx(isActive ? null : i);
+                }
+              }}
+              aria-label={`Testimonial from ${t.author}. Click to highlight.`}
+              aria-expanded={isActive}
+              className={`rounded-2xl p-8 transition-all duration-300 border cursor-pointer block w-full text-left focus-visible:ring-2 focus-visible:ring-accent outline-none
                 ${isActive ? 'bg-card shadow-lg border-border' : 'bg-card/40 border-transparent md:hover:bg-card md:hover:shadow-lg md:hover:border-border'}
               `}
             >
@@ -56,7 +64,7 @@ export function Testimonials() {
               <strong className="block text-primary font-bold whitespace-normal">
                 — {t.author}
               </strong>
-            </div>
+            </button>
           );
         })}
       </div>

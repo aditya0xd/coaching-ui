@@ -40,10 +40,18 @@ export function Stats() {
           {stats.map((stat, i) => {
             const isActive = activeIdx === i;
             return (
-              <div 
+              <button 
                 key={i} 
                 onClick={() => setActiveIdx(isActive ? null : i)}
-                className="space-y-4 group cursor-pointer"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setActiveIdx(isActive ? null : i);
+                  }
+                }}
+                aria-label={`Stat: ${stat.label} - ${stat.value}. Click for description.`}
+                aria-expanded={isActive}
+                className="space-y-4 group cursor-pointer text-left block w-full focus-visible:ring-2 focus-visible:ring-accent outline-none"
               >
                 <div className="flex items-center gap-3">
                   <div className={`w-1 h-8 transition-colors duration-300
@@ -65,7 +73,7 @@ export function Stats() {
                 `}>
                   {stat.description}
                 </p>
-              </div>
+              </button>
             );
           })}
         </div>

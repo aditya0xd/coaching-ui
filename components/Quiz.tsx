@@ -60,7 +60,14 @@ export function Quiz() {
         
         {/* Subtle Progress Bar */}
         {step >= 1 && step <= 3 && (
-          <div className="absolute top-0 left-0 w-full h-1 bg-muted">
+          <div 
+            className="absolute top-0 left-0 w-full h-1 bg-muted"
+            role="progressbar"
+            aria-valuenow={step}
+            aria-valuemin={1}
+            aria-valuemax={3}
+            aria-label={`Assessment progress: Phase ${step} of 3`}
+          >
             <div 
               className="h-full bg-accent transition-all duration-500 ease-out" 
               style={{ width: `${(step / 3) * 100}%` }}

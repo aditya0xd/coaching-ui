@@ -41,10 +41,18 @@ export function Services() {
         {services.map((service, index) => {
           const isActive = activeIdx === index;
           return (
-            <div
+            <button
               key={service.title}
               onClick={() => setActiveIdx(isActive ? null : index)}
-              className={`bg-card text-left border rounded-[18px] p-8 transition-all duration-300 cursor-pointer
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setActiveIdx(isActive ? null : index);
+                }
+              }}
+              aria-label={`Service: ${service.title}. Click for more info.`}
+              aria-expanded={isActive}
+              className={`bg-card text-left border rounded-[18px] p-8 transition-all duration-300 cursor-pointer w-full block focus-visible:ring-2 focus-visible:ring-accent outline-none
                 ${isActive ? 'shadow-xl -translate-y-2 border-accent' : 'border-border shadow-sm md:hover:shadow-lg md:hover:-translate-y-1'}
               `}
             >
@@ -57,7 +65,7 @@ export function Services() {
               <p className="text-muted-foreground text-base leading-relaxed whitespace-normal">
                 {service.description}
               </p>
-            </div>
+            </button>
           );
         })}
       </div>
