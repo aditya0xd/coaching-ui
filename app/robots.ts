@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://your-domain.com/sitemap.xml", // TODO: Replace with your actual domain
+    sitemap: "https://coaching-ui-b8qk.vercel.app/sitemap.xml", // TODO: Replace with your actual domain
   };
 }

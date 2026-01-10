@@ -14,13 +14,13 @@ export function Transformations() {
 
   const transformations = [
     {
-      image: "/assets/CEE/bl.png",
+      image: "/assets/transformation1.png",
       name: "Ernest N.",
       result: "Lost 25 lbs in 12 weeks",
       details: "Decreased body fat by 8% while increasing strength on all major lifts. Balanced a high-stress accounting career with 4 sessions per week."
     },
     {
-      image: "/assets/CEE/bl.png",
+      image: "/assets/transformation2.png",
       name: "Marcus J.",
       result: "Muscle Gain + Recomp",
       details: "Added 12 lbs of lean mass while dropping 3% body fat. Focused on progressive overload and a strict high-protein protocol."
@@ -32,13 +32,25 @@ export function Transformations() {
       details: "Reclaimed abdominal definition and core strength using a low-impact, high-efficiency metabolic circuit system."
     },
     {
-      image: "/assets/CEE/bl.png",
+      image: "/assets/transformation3.png",
       name: "David L.",
       result: "Executive Transformation",
       details: "Lost 30 lbs of visceral fat. Optimized nutrition around frequent business travel and client dinners."
     },
     {
-      image: "/assets/CEE/bl.png",
+      image: "/assets/transformation4.png",
+      name: "Elena R.",
+      result: "Strength & Toning",
+      details: "Transitioned from 'skinny fat' to athletic definition. Hit a 200lb deadlift milestone while maintaining a busy legal practice."
+    },
+    {
+      image: "/assets/transformation5.png",
+      name: "Elena R.",
+      result: "Strength & Toning",
+      details: "Transitioned from 'skinny fat' to athletic definition. Hit a 200lb deadlift milestone while maintaining a busy legal practice."
+    },
+    {
+      image: "/assets/transformation6.png",
       name: "Elena R.",
       result: "Strength & Toning",
       details: "Transitioned from 'skinny fat' to athletic definition. Hit a 200lb deadlift milestone while maintaining a busy legal practice."

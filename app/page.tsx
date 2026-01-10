@@ -28,9 +28,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative">
-      <Navbar onOpenBooking={openModal} name="Oskar Michowicz" />
+      <Navbar onOpenBooking={openModal} name="Samuel Fernandez" />
       
-      <Hero onOpenBooking={openModal} name="Oskar Michowicz"/>
+      <Hero onOpenBooking={openModal} name="Samuel Fernandez"/>
       <TrustLogos />
       
       <div className="space-y-0">
@@ -44,7 +44,7 @@ export default function Home() {
         <Testimonials />
         <LeadMagnet />
         <HowItWorks onOpenBooking={openModal} />
-        <About name="Oskar Michowicz" />
+        <About name="Samuel Fernandez" />
         <FAQ />
         <FinalCTA onOpenBooking={openModal} />
       </div>

@@ -40,7 +40,7 @@ export function Hero({ onOpenBooking, name }: HeroProps) {
                 <div key={i} className="relative w-10 h-10 rounded-full border-2 border-background overflow-hidden shadow-sm">
                   <Image
                     src={`/assets/CEE/profile.jpg`} // Using available profile image as placeholder for facepile
-                    alt="Client"
+                    alt="Success Story Transformation"
                     fill
                     className="object-cover grayscale hover:grayscale-0 transition-all cursor-pointer"
                   />

@@ -8,7 +8,7 @@ export function Testimonials() {
 
   const testimonials = [
     {
-      text: "I started working with Diego at 38, feeling stuck and out of shape. Within 12 weeks, I dropped 18 lbs and gained visible muscle definition. The best part? I never felt deprived or burned out. The plan just... worked.",
+      text: "I started working with Samuel Fernandez at 38, feeling stuck and out of shape. Within 12 weeks, I dropped 18 lbs and gained visible muscle definition. The best part? I never felt deprived or burned out. The plan just... worked.",
       author: "Jamie R., Marketing Director",
     },
     {
@@ -17,7 +17,7 @@ export function Testimonials() {
       author: "Taylor M., Software Engineer",
     },
     {
-      text: "What I appreciate most is Diego's no-BS approach. He doesn't sell magic pills or shortcuts. Just proven methods that work for real people with real lives. I'm stronger, leaner, and more confident than I was in my 20s.",
+      text: "What I appreciate most is Samuel Fernandez's no-BS approach. He doesn't sell magic pills or shortcuts. Just proven methods that work for real people with real lives. I'm stronger, leaner, and more confident than I was in my 20s.",
       author: "Chris D., Business Owner",
     },
   ];
