@@ -15,45 +15,45 @@ export function Transformations() {
   const transformations = [
     {
       image: "/assets/transformation1.png",
-      name: "Ernest N.",
-      result: "Lost 25 lbs in 12 weeks",
-      details: "Decreased body fat by 8% while increasing strength on all major lifts. Balanced a high-stress accounting career with 4 sessions per week."
+      name: "Jason P.",
+      result: "Lean Muscle Recomp",
+      details: "Focused on strategic calorie cycling to shed core fat while building significant shoulder and arm density. Balanced high-volume training with a demanding tech career."
     },
     {
       image: "/assets/transformation2.png",
-      name: "Marcus J.",
-      result: "Muscle Gain + Recomp",
-      details: "Added 12 lbs of lean mass while dropping 3% body fat. Focused on progressive overload and a strict high-protein protocol."
+      name: "Chris M.",
+      result: "12-Week Shred Protocol",
+      details: "Achieved peak vascularity and abdominal definition. Optimized his metabolic rate through a structured 12-week protocol without sacrificing social life."
     },
     {
       image: "/assets/Screenshot_2026_01_06_12_29_24_28_1c337646f29875672b5a61192b9010f9.jpg",
-      name: "Sarah T.",
-      result: "Dropped 18 lbs Post-Pregnancy",
-      details: "Reclaimed abdominal definition and core strength using a low-impact, high-efficiency metabolic circuit system."
+      name: "Aiden C.",
+      result: "Athletic Body Recomp",
+      details: "Successfully executed a total body recomposition by uncovering hidden core definition and building lean leg power. Used a 16-week metabolic reset strategy."
     },
     {
       image: "/assets/transformation3.png",
-      name: "David L.",
-      result: "Executive Transformation",
-      details: "Lost 30 lbs of visceral fat. Optimized nutrition around frequent business travel and client dinners."
+      name: "Tyler W.",
+      result: "Hypertrophy Specialist",
+      details: "Added 15 lbs of pure lean mass over 6 months. Mastered progressive overload and high-volume training to completely transform a lanky frame."
     },
     {
       image: "/assets/transformation4.png",
-      name: "Elena R.",
-      result: "Strength & Toning",
-      details: "Transitioned from 'skinny fat' to athletic definition. Hit a 200lb deadlift milestone while maintaining a busy legal practice."
+      name: "Kevin S.",
+      result: "Executive Lifestyle Recomp",
+      details: "Transitioned from a 'soft' physique to an athletic build. Prioritized compound lifts and nutrient timing while managing frequent international business travel."
     },
     {
       image: "/assets/transformation5.png",
-      name: "Elena R.",
-      result: "Strength & Toning",
-      details: "Transitioned from 'skinny fat' to athletic definition. Hit a 200lb deadlift milestone while maintaining a busy legal practice."
+      name: "Marcus D.",
+      result: "Stubborn Fat Loss",
+      details: "Dropped 22 lbs of stubborn midsection fat. Proved that consistent, logical systems over willpower can deliver a six-pack even at 40+."
     },
     {
       image: "/assets/transformation6.png",
-      name: "Elena R.",
-      result: "Strength & Toning",
-      details: "Transitioned from 'skinny fat' to athletic definition. Hit a 200lb deadlift milestone while maintaining a busy legal practice."
+      name: "Jordan H.",
+      result: "Skinny-to-Muscular Overhaul",
+      details: "Gained 18 lbs of stage-quality muscle. Overhauled his entire physique through high-intensity resistance training and a high-protein nutritional framework."
     },
   ];
 
