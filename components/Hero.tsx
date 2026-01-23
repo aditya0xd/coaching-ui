@@ -101,7 +101,7 @@ export function Hero({ name }: HeroProps) {
       <div className="flex-1 w-full max-w-[500px] relative">
         <div className="relative aspect-3/4 w-full">
           <Image
-            src="/ee11.jpg"
+            src="/ee11.png"
             alt="Anthony Bell Profile"
             fill
             className="object-cover object-top scale-110 rounded-[24px] shadow-2xl"

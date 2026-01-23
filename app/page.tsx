@@ -23,9 +23,9 @@ export default async function Home() {
   await connection();
   return (
     <main id="main-content" className="min-h-screen relative">
-      <Navbar name="Samuel Fernandez" />
+      <Navbar name="Refined Motion" />
 
-      <Hero name="Samuel Fernandez" />
+      <Hero name="Refined Motion" />
       <TrustLogos />
 
       <div className="space-y-0">
@@ -39,7 +39,7 @@ export default async function Home() {
         <Testimonials />
         <LeadMagnet />
         <HowItWorks />
-        <About name="Samuel Fernandez" />
+        <About name="Refined Motion" />
         <FAQ />
         <FinalCTA />
       </div>
