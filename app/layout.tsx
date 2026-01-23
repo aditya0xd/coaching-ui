@@ -8,18 +8,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Samuel Fernandez | Online Fitness Coach",
-  description: "Personalized training, sustainable nutrition, and proven systems designed to help you build strength, lose fat, and stay consistent.",
+  title: "Rok Didakovic | Online Fitness Coach",
+  description:
+    "Personalized training, sustainable nutrition, and proven systems designed to help you build strength, lose fat, and stay consistent.",
   openGraph: {
-    title: "Samuel Fernandez | Online Fitness Coach",
-    description: "Transform your body with personalized training and nutrition systems. No crash diets, just results.",
+    title: "Anthony Bell | Online Fitness Coach",
+    description:
+      "Transform your body with personalized training and nutrition systems. No crash diets, just results.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Samuel Fernandez | Online Fitness Coach",
-    description: "Personalized training, sustainable nutrition, and proven systems.",
+    title: "Rok Didakovic | Online Fitness Coach",
+    description:
+      "Personalized training, sustainable nutrition, and proven systems.",
   },
 };
 
@@ -39,8 +42,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <a 
-            href="#main-content" 
+          <a
+            href="#main-content"
             className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-background focus:text-foreground focus:px-4 focus:py-2 focus:border focus:border-accent focus:rounded-md shadow-2xl font-bold transition-all"
           >
             Skip to content
@@ -52,11 +55,12 @@ export default function RootLayout({
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Person",
-                "name": "Samuel Fernandez",
-                "jobTitle": "Online Fitness Coach",
-                "description": "Personalized training and nutrition systems for busy professionals.",
-                "url": "https://coaching-ui-b8qk.vercel.app"
-              })
+                name: "Rok Didakovic",
+                jobTitle: "Online Fitness Coach",
+                description:
+                  "Personalized training and nutrition systems for busy professionals.",
+                url: "https://coaching-ui-b8qk.vercel.app",
+              }),
             }}
           />
         </ThemeProvider>

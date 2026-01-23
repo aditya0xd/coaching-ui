@@ -21,29 +21,27 @@ import { BookingModal } from "@/components/BookingModal";
 export default function Home() {
   return (
     <main id="main-content" className="min-h-screen relative">
-      <Navbar name="Samuel Fernandez" />
-      
-      <Hero name="Samuel Fernandez"/>
-      <TrustLogos />
-      
+      <Navbar name="Rok Didakovic" />
+
+      <Hero name="Rok Didakovic" />
+      {/* <TrustLogos /> */}
+
       <div className="space-y-0">
-        <Problem />
-        <Solution />
-        <Stats />
+        {/* <Problem />
+        <Solution /> */}
+        {/* <Stats /> */}
         <Quiz />
         <Transformations />
         <WhoIsThisFor />
-        <Services />
+        {/* <Services /> */}
         <Testimonials />
-        <LeadMagnet />
-        <HowItWorks />
-        <About name="Samuel Fernandez" />
-        <FAQ />
+        {/* <LeadMagnet /> */}
+        {/* <HowItWorks /> */}
+        <About name="Rok Didakovic" />
+        {/* <FAQ /> */}
         <FinalCTA />
       </div>
-
       <Footer />
-
       <Suspense fallback={null}>
         <BookingModal />
       </Suspense>
