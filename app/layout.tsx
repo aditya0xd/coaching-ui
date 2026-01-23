@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Rok Didakovic | Online Fitness Coach",
+  title: "Samuel Fernandez | Online Fitness Coach",
   description:
     "Personalized training, sustainable nutrition, and proven systems designed to help you build strength, lose fat, and stay consistent.",
   openGraph: {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rok Didakovic | Online Fitness Coach",
+    title: "Samuel Fernandez | Online Fitness Coach",
     description:
       "Personalized training, sustainable nutrition, and proven systems.",
   },
@@ -55,7 +55,7 @@ export default function RootLayout({
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Person",
-                name: "Rok Didakovic",
+                name: "Samuel Fernandez",
                 jobTitle: "Online Fitness Coach",
                 description:
                   "Personalized training and nutrition systems for busy professionals.",
