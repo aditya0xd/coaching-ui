@@ -27,11 +27,11 @@ export function BookingModal({ onClose }: BookingModalProps) {
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
-  
+
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  
+
   const isOpen = searchParams.get("booking") === "true";
 
   const handleClose = () => {
@@ -62,7 +62,7 @@ export function BookingModal({ onClose }: BookingModalProps) {
     setLoading(true);
 
     const formData = new FormData(formRef.current);
-    
+
     // Construct data object matching the template parameters
     const templateParams = {
       name: formData.get("name"),
@@ -75,13 +75,15 @@ export function BookingModal({ onClose }: BookingModalProps) {
 
     try {
       await emailjs.send(
-        "service_7quctin", 
-        "template_e80zpbp", 
+        "service_7quctin",
+        "template_e80zpbp",
         templateParams,
-        { publicKey: "e7R7kSAq67Y8B2FZ4" }
+        { publicKey: "e7R7kSAq67Y8B2FZ4" },
       );
-      
-      alert(`✅ Appointment booked!\n\nDate: ${selectedDate}\nTime: ${selectedSlot}`);
+
+      alert(
+        `✅ Appointment booked!\n\nDate: ${selectedDate}\nTime: ${selectedSlot}`,
+      );
       formRef.current.reset();
       setSelectedDate("");
       setSelectedSlot(null);
@@ -97,14 +99,14 @@ export function BookingModal({ onClose }: BookingModalProps) {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       {/* Backdrop */}
-      <div 
+      <div
         className="absolute inset-0 bg-primary/50 backdrop-blur-sm transition-opacity"
         onClick={handleClose}
         aria-hidden="true"
       />
 
       {/* Modal Content */}
-      <div 
+      <div
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
@@ -118,7 +120,10 @@ export function BookingModal({ onClose }: BookingModalProps) {
           <X size={24} />
         </button>
 
-        <h3 id="modal-title" className="text-xl font-bold mb-6 text-foreground pr-8">
+        <h3
+          id="modal-title"
+          className="text-xl font-bold mb-6 text-foreground pr-8"
+        >
           Book Your Free Strategy Call
         </h3>
 
@@ -164,7 +169,7 @@ export function BookingModal({ onClose }: BookingModalProps) {
                     "p-2 text-xs md:text-sm border rounded-xl transition-all",
                     selectedSlot === slot
                       ? "bg-primary text-primary-foreground border-primary"
-                      : "bg-muted/10 text-foreground border-border hover:bg-muted/20"
+                      : "bg-muted/10 text-foreground border-border hover:bg-muted/20",
                   )}
                 >
                   {slot}
@@ -184,10 +189,10 @@ export function BookingModal({ onClose }: BookingModalProps) {
             <option>General Fitness</option>
           </select>
 
-          <Button 
-            variant="large" 
-            type="submit" 
-            className="w-full text-lg mt-2" 
+          <Button
+            variant="large"
+            type="submit"
+            className="w-full text-lg mt-2"
             disabled={loading}
           >
             {loading ? "Booking..." : "Reserve My Spot"}

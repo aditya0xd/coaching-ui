@@ -17,8 +17,10 @@ import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
+import { connection } from "next/server";
 
-export default function Home() {
+export default async function Home() {
+  await connection();
   return (
     <main className="min-h-screen relative">
       <Navbar name="Samuel Fernandez" />
@@ -59,7 +61,6 @@ export default function Home() {
       <FAQ />
       <FinalCTA />
       <Footer />
-
       <Suspense fallback={null}>
         <BookingModal />
       </Suspense>
