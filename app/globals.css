@@ -5,7 +5,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f8fafc;
+  /* --background: #f8fafc;
   --foreground: #0f172a;
 
   --primary: #0f172a;
@@ -23,6 +23,26 @@
   --border: #e2e8f0;
 
   --radius: 1.125rem;
+  --font-sans: "Inter", system-ui, sans-serif; */
+
+  --background: #F7FAF9  ;
+  --foreground: #0f172a;
+
+   --primary: #1F7A63   ;
+  --primary-foreground: #ffffff;
+
+  --accent: #A7D7C5 ;
+  --accent-foreground: #ffffff;
+
+  --muted: #6B7280 ;
+  --muted-foreground: #94a3b8;
+
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+
+  --border: #e2e8f0;
+
+  --radius: 1.120rem;
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
@@ -34,7 +54,8 @@
   --primary: #f8fafc;
   --primary-foreground: #0f172a;
 
-  --accent: #22d3ee;
+  /* --accent: #22d3ee; */
+  --accent: #1F7A63 ;
   --accent-foreground: #0f172a;
 
   --muted: #94a3b8;

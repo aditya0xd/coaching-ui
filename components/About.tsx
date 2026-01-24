@@ -27,20 +27,25 @@ export function About({ name }: AboutProps) {
       icon: TrendingUp,
       title: "Proven Coaching Framework",
       description:
-        "This system has helped hundreds of clients build lean, strong physiques. It's not trendy or experimental—it's what actually works for busy people with real lives.",
+        "This system has helped hundreds of clients build lean, strong physiques. It's not trendy or experimental-it's what actually works for busy people with real lives.",
     },
   ];
 
   return (
-    <section id="about" className="container mx-auto px-5 md:px-12 py-20 max-w-5xl">
+    <section
+      id="about"
+      className="container mx-auto px-5 md:px-12 py-20 max-w-5xl"
+    >
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary whitespace-normal">
           Why Work With {name}?
         </h2>
         <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto whitespace-normal">
-          I've spent years helping busy professionals like you build bodies they're proud of—
-          without sacrificing their careers, families, or sanity. <span className="font-semibold text-primary">No extreme diets. 
-          No 2-hour gym sessions.</span> Just a proven, sustainable approach that actually fits into real life.
+          This isn’t a challenge or a template program. It’s a{" "}
+          <span className="font-semibold text-primary">
+            structured coaching
+          </span>{" "}
+          system.
         </p>
       </div>
 
@@ -48,11 +53,11 @@ export function About({ name }: AboutProps) {
         {features.map((feature, index) => {
           const isActive = activeIdx === index;
           return (
-            <button
+            <div
               key={feature.title}
               onClick={() => setActiveIdx(isActive ? null : index)}
               onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
+                if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
                   setActiveIdx(isActive ? null : index);
                 }
@@ -60,23 +65,26 @@ export function About({ name }: AboutProps) {
               aria-label={`Feature: ${feature.title}. Click for more details.`}
               aria-expanded={isActive}
               className={`rounded-[18px] p-8 transition-all duration-300 border cursor-pointer block w-full text-center focus-visible:ring-2 focus-visible:ring-accent outline-none
-                ${isActive ? 'bg-card shadow-xl -translate-y-2 border-border' : 'bg-card/50 border-transparent md:hover:bg-card md:hover:shadow-xl md:hover:-translate-y-2'}
-              `}
+                ${isActive ? "bg-card shadow-xl -translate-y-2 border-border" : "bg-card/50 border-transparent md:hover:bg-card md:hover:shadow-xl md:hover:-translate-y-2"}
+                bg-[url('/card-img.png')] bg-cover bg-center`}
             >
-              <feature.icon className={`w-10 h-10 md:w-12 md:h-12 mx-auto mb-5 transition-colors
-                ${isActive ? 'text-accent' : 'text-primary'}
-              `} />
-              <h3 className="text-lg font-bold mb-3 text-primary whitespace-normal">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground text-base leading-relaxed whitespace-normal">
-                {feature.description}
-              </p>
-            </button>
+              <div className="bg-black/10 backdrop-blur-[2px] ">
+                <feature.icon
+                  className={`w-10 h-10 md:w-12 md:h-12 mx-auto mb-5 transition-colors
+                ${isActive ? "text-accent" : "text-primary"}
+              `}
+                />
+                <h3 className="text-lg font-bold mb-3 text-primary whitespace-normal">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-base leading-relaxed whitespace-normal">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
           );
         })}
       </div>
     </section>
   );
 }
-

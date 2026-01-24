@@ -5,7 +5,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/css";  
+import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
@@ -14,46 +14,53 @@ export function Transformations() {
 
   const transformations = [
     {
-      image: "/assets/transformation1.png",
-      name: "Jason P.",
+      image: "/assets/CEE/image1.png",
+      name: "Hayden",
       result: "Lean Muscle Recomp",
-      details: "Focused on strategic calorie cycling to shed core fat while building significant shoulder and arm density. Balanced high-volume training with a demanding tech career."
+      details:
+        "Focused on strategic calorie cycling to shed core fat while building significant shoulder and arm density. Balanced high-volume training with a demanding tech career.",
     },
     {
-      image: "/assets/transformation2.png",
-      name: "Chris M.",
+      image: "/assets/CEE/image2.png",
+      name: "Luciano.",
       result: "12-Week Shred Protocol",
-      details: "Achieved peak vascularity and abdominal definition. Optimized his metabolic rate through a structured 12-week protocol without sacrificing social life."
+      details:
+        "Achieved peak vascularity and abdominal definition. Optimized his metabolic rate through a structured 12-week protocol without sacrificing social life.",
     },
     {
-      image: "/assets/Screenshot_2026_01_06_12_29_24_28_1c337646f29875672b5a61192b9010f9.jpg",
-      name: "Aiden C.",
+      image: "/assets/CEE/image3.png",
+      name: "Erick",
       result: "Athletic Body Recomp",
-      details: "Successfully executed a total body recomposition by uncovering hidden core definition and building lean leg power. Used a 16-week metabolic reset strategy."
+      details:
+        "Successfully executed a total body recomposition by uncovering hidden core definition and building lean leg power. Used a 16-week metabolic reset strategy.",
     },
     {
-      image: "/assets/transformation3.png",
-      name: "Tyler W.",
+      image: "/assets/CEE/image4.png",
+      name: "Francesco",
       result: "Hypertrophy Specialist",
-      details: "Added 15 lbs of pure lean mass over 6 months. Mastered progressive overload and high-volume training to completely transform a lanky frame."
+      details:
+        "Added 15 lbs of pure lean mass over 6 months. Mastered progressive overload and high-volume training to completely transform a lanky frame.",
     },
     {
-      image: "/assets/transformation4.png",
-      name: "Kevin S.",
+      image: "/assets/CEE/image5.png",
+      name: "Gilad",
       result: "Executive Lifestyle Recomp",
-      details: "Transitioned from a 'soft' physique to an athletic build. Prioritized compound lifts and nutrient timing while managing frequent international business travel."
+      details:
+        "Transitioned from a 'soft' physique to an athletic build. Prioritized compound lifts and nutrient timing while managing frequent international business travel.",
     },
     {
-      image: "/assets/transformation5.png",
+      image: "/assets/CEE/image6.png",
       name: "Marcus D.",
       result: "Stubborn Fat Loss",
-      details: "Dropped 22 lbs of stubborn midsection fat. Proved that consistent, logical systems over willpower can deliver a six-pack even at 40+."
+      details:
+        "Dropped 22 lbs of stubborn midsection fat. Proved that consistent, logical systems over willpower can deliver a six-pack even at 40+.",
     },
     {
-      image: "/assets/transformation6.png",
+      image: "/assets/CEE/image7.png",
       name: "Jordan H.",
       result: "Skinny-to-Muscular Overhaul",
-      details: "Gained 18 lbs of stage-quality muscle. Overhauled his entire physique through high-intensity resistance training and a high-protein nutritional framework."
+      details:
+        "Gained 18 lbs of stage-quality muscle. Overhauled his entire physique through high-intensity resistance training and a high-protein nutritional framework.",
     },
   ];
 
@@ -87,10 +94,10 @@ export function Transformations() {
           const isActive = activeIdx === index;
           return (
             <SwiperSlide key={index}>
-              <button 
+              <button
                 onClick={() => setActiveIdx(isActive ? null : index)}
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
+                  if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
                     setActiveIdx(isActive ? null : index);
                   }
@@ -104,20 +111,24 @@ export function Transformations() {
                   alt={`${item.name} - ${item.result}`}
                   fill
                   className={`object-cover transition-transform duration-700 ease-in-out 
-                    ${isActive ? 'scale-110' : 'md:group-hover:scale-110'}
+                    ${isActive ? "scale-110" : "md:group-hover:scale-110"}
                   `}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
 
                 {/* Enhanced Info Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-6 transition-opacity
-                  ${isActive ? 'opacity-100' : 'opacity-90 md:group-hover:opacity-100'}
-                `}>
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-6 transition-opacity
+                  ${isActive ? "opacity-100" : "opacity-90 md:group-hover:opacity-100"}
+                `}
+                >
                   <div className="space-y-4">
                     {/* Detailed Reveal Section */}
-                    <div className={`transition-opacity duration-500 delay-100
-                      ${isActive ? 'opacity-100' : 'opacity-0 md:group-hover:opacity-100'}
-                    `}>
+                    <div
+                      className={`transition-opacity duration-500 delay-100
+                      ${isActive ? "opacity-100" : "opacity-0 md:group-hover:opacity-100"}
+                    `}
+                    >
                       <p className="text-white/80 text-xs font-medium leading-relaxed italic border-l-2 border-accent/40 pl-3">
                         "{item.details}"
                       </p>
@@ -141,4 +152,3 @@ export function Transformations() {
     </section>
   );
 }
-

@@ -20,28 +20,44 @@ import { BookingModal } from "@/components/BookingModal";
 
 export default function Home() {
   return (
-    <main id="main-content" className="min-h-screen relative">
+    <main className="min-h-screen relative">
       <Navbar name="Samuel Fernandez" />
-      
-      <Hero name="Samuel Fernandez"/>
-      <TrustLogos />
-      
-      <div className="space-y-0">
-        <Problem />
-        <Solution />
-        <Stats />
-        <Quiz />
-        <Transformations />
-        <WhoIsThisFor />
-        <Services />
-        <Testimonials />
-        <LeadMagnet />
-        <HowItWorks />
-        <About name="Samuel Fernandez" />
-        <FAQ />
-        <FinalCTA />
+
+      <div className="min-h-[300vh] relative">
+        {/* Sticky background layer */}
+        <div className="sticky top-0 h-screen ">
+          <div
+            className="absolute inset-0 
+      bg-[url('/gym-bg.png')] bg-cover bg-center"
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+
+        {/* Overlay content layer */}
+        <div className="absolute top-0 left-0 w-full">
+          <Hero name="" />
+        </div>
+
+        {/* Normal scrolling content */}
+        <div className="relative mt-[60vh] md:mt-[80vh]">
+          <Problem />
+        </div>
+        <div className="mt-[20vh] md:mt-[40vh]">
+          <Solution />
+        </div>
       </div>
 
+      {/* Normal site */}
+      <Stats />
+      <Quiz />
+      <Transformations />
+      <WhoIsThisFor />
+      <Testimonials />
+      <LeadMagnet />
+      <HowItWorks />
+      <About name="Samuel Fernandez" />
+      <FAQ />
+      <FinalCTA />
       <Footer />
 
       <Suspense fallback={null}>

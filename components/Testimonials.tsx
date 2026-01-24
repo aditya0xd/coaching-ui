@@ -8,22 +8,25 @@ export function Testimonials() {
 
   const testimonials = [
     {
-      text: "I started working with Samuel Fernandez at 38, feeling stuck and out of shape. Within 12 weeks, I dropped 18 lbs and gained visible muscle definition. The best part? I never felt deprived or burned out. The plan just... worked.",
-      author: "Jamie R., Marketing Director",
+      text: "I started working with Anthony Bell at 38, feeling stuck and out of shape. Within 12 weeks, I dropped 18 lbs and gained visible muscle definition. The best part? I never felt deprived or burned out. The plan just... worked.",
+      author: "Jamie R., Videographer",
     },
     {
       id: "stories",
       text: "I've tried every diet and workout program out there. This was different. No extreme restrictions, no living in the gym. Just smart training and sustainable habits. Six months in, I'm in the best shape of my life—and it feels effortless now.",
-      author: "Taylor M., Software Engineer",
+      author: "Bella M., College Student",
     },
     {
-      text: "What I appreciate most is Samuel Fernandez's no-BS approach. He doesn't sell magic pills or shortcuts. Just proven methods that work for real people with real lives. I'm stronger, leaner, and more confident than I was in my 20s.",
+      text: "What I appreciate most is Anthony Bell's no-BS approach. He doesn't sell magic pills or shortcuts. Just proven methods that work for real people with real lives. I'm stronger, leaner, and more confident than I was in my 20s.",
       author: "Chris D., Business Owner",
     },
   ];
 
   return (
-    <section id="stories" className="container mx-auto px-5 md:px-12 py-20 pb-32">
+    <section
+      id="stories"
+      className="container mx-auto px-5 md:px-12 py-20 pb-32"
+    >
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-primary whitespace-normal">
         THESE GUYS DID IT
       </h2>
@@ -39,7 +42,7 @@ export function Testimonials() {
               key={i}
               onClick={() => setActiveIdx(isActive ? null : i)}
               onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
+                if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
                   setActiveIdx(isActive ? null : i);
                 }
@@ -47,7 +50,7 @@ export function Testimonials() {
               aria-label={`Testimonial from ${t.author}. Click to highlight.`}
               aria-expanded={isActive}
               className={`rounded-2xl p-8 transition-all duration-300 border cursor-pointer block w-full text-left focus-visible:ring-2 focus-visible:ring-accent outline-none
-                ${isActive ? 'bg-card shadow-lg border-border' : 'bg-card/40 border-transparent md:hover:bg-card md:hover:shadow-lg md:hover:border-border'}
+                ${isActive ? "bg-card shadow-lg border-border" : "bg-card/40 border-transparent md:hover:bg-card md:hover:shadow-lg md:hover:border-border"}
               `}
             >
               <div className="flex gap-1 mb-4">
@@ -71,4 +74,3 @@ export function Testimonials() {
     </section>
   );
 }
-

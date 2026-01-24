@@ -1,7 +1,9 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
+import Link from "next/link";
 
 export function Solution() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -19,36 +21,36 @@ export function Solution() {
 
   const pillars = [
     {
-      title: "Physiological Precision",
-      label: "The Training",
+      title: "Progressive Output Training",
+      label: "Build",
       desc: "3-4 scientifically backed sessions per week that prioritize compound movements. Each workout is designed to trigger maximum metabolic response in under 45 minutes, respect your joints, and fit your schedule.",
     },
     {
       title: "Bio-Individual Nutrition",
-      label: "The Fuel",
-      desc: "No unnecessary restriction. We implement a flexible framework that allows you to hit your macros while enjoying social meals and travel. We focus on logic and data, not 'clean' eating myths.",
+      label: "Fuel",
+      desc: "Your nutrition evolves as your body changes. Calories and macros are adjusted based on weekly data — not emotions or rigid rules. You eat like a normal human while your physique improves through controlled, logical progression.",
     },
     {
       title: "Deep Accountability",
-      label: "The Support",
-      desc: "Direct access to me whenever you hit a hurdle. Weekly data reviews and consistent check-ins ensure your momentum never stalls. This is partnership, not a PDF plan.",
+      label: "Refine",
+      desc: "Every week we analyze performance, body composition, recovery, and habits - then make precise adjustments.",
     },
   ];
 
   return (
     <section
       ref={containerRef}
-      className="container mx-auto px-5 md:px-12 py-32 relative overflow-hidden"
+      className="bg-black/10 backdrop-blur-sm container mx-auto px-5 md:px-12 py-32 relative overflow-hidden"
     >
       <div className="max-w-4xl relative">
         {/* Header */}
         <div className="space-y-4 mb-24">
           <span className="text-[10px] font-black tracking-[0.3em] uppercase text-accent border-b border-accent/20 pb-2 inline-block">
-            The Framework
+            Framework
           </span>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[1] tracking-tighter">
-            Systems over{" "}
-            <span className="text-foreground/30 italic">willpower.</span>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black leading-none tracking-tighter">
+            The <span className="text-accent/90 italic">KAIZEN</span> Method{" "}
+            <span className="text-foreground/30 italic"></span>
           </h2>
         </div>
 
@@ -78,10 +80,10 @@ export function Solution() {
                 >
                   {/* Index column (fixed width) */}
                   <div className="w-[120px] flex flex-col items-center gap-2 relative z-10">
-                    <span className="text-4xl font-black text-accent bg-background">
+                    <span className="text-4xl font-black text-accent bg-background rounded-full p-3">
                       0{i + 1}
                     </span>
-                    <span className="text-[10px] font-black tracking-widest uppercase text-muted-foreground bg-background text-center">
+                    <span className="text-[10px] font-black tracking-widest uppercase text-muted-foreground bg-background text-center px-1 rounded">
                       {pillar.label}
                     </span>
                   </div>
@@ -102,6 +104,16 @@ export function Solution() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex justify-center mt-15">
+        <Link href="?booking=true" className="w-full sm:w-auto" scroll={false}>
+          <Button
+            variant="large"
+            className="w-full sm:w-auto text-lg px-8 py-6 h-auto shadow-2xl shadow-primary/20"
+          >
+            Start Your Kaizen Plan
+          </Button>
+        </Link>
       </div>
     </section>
   );
