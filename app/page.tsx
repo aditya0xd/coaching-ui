@@ -30,7 +30,7 @@ export default async function Home() {
         <div className="sticky top-0 h-screen ">
           <div
             className="absolute inset-0 
-      bg-[url('/gym-bg.png')] bg-cover bg-center"
+          bg-[url('/gym-bg.png')] bg-cover bg-center"
           />
           <div className="absolute inset-0 bg-black/30" />
         </div>

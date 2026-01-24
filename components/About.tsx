@@ -68,7 +68,7 @@ export function About({ name }: AboutProps) {
                 ${isActive ? "bg-card shadow-xl -translate-y-2 border-border" : "bg-card/50 border-transparent md:hover:bg-card md:hover:shadow-xl md:hover:-translate-y-2"}
                 bg-[url('/card-img.png')] bg-cover bg-center`}
             >
-              <div className="bg-black/10 backdrop-blur-[2px] ">
+              <div className="bg-black/40 backdrop-blur-sm px-2 py-1">
                 <feature.icon
                   className={`w-10 h-10 md:w-12 md:h-12 mx-auto mb-5 transition-colors
                 ${isActive ? "text-accent" : "text-primary"}
