@@ -7,10 +7,18 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, Download } from "lucide-react";
 
 export function LeadMagnet() {
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isImageActive, setIsImageActive] = useState(false);
+
+  useEffect(() => {
+    if (!errorMsg) return;
+    const t = setTimeout(() => setErrorMsg(null), 4000);
+    return () => clearTimeout(t);
+  }, [errorMsg]);
 
   useEffect(() => {
     emailjs.init("e7R7kSAq67Y8B2FZ4");
@@ -20,39 +28,21 @@ export function LeadMagnet() {
     e.preventDefault();
     setLoading(true);
 
-    const templateParams = {
-      user_email: email,
-      blueprint_name: "7-Day Sustainable Fat Loss Blueprint",
-    };
-
     try {
       // 1. Send notification to yourself via EmailJS
       await emailjs.send(
         "service_7quctin",
-        "template_e80zpbp", // You might want to create a specific template for this later
+        "template_a1f6rhg",
         {
-          name: "Lead Magnet Subscriber",
           email: email,
-          phone: "N/A",
-          service: "Blueprint Download",
-          date: new Date().toLocaleDateString(),
-          time: new Date().toLocaleTimeString(),
+          download_link: "https://yourdomain.com/assets/fat-loss-blueprint.pdf",
         },
         { publicKey: "e7R7kSAq67Y8B2FZ4" },
       );
 
-      // 2. Trigger the automatic download
-      const link = document.createElement("a");
-      link.href = "/assets/fat-loss-blueprint.pdf"; // Make sure to place your PDF here!
-      link.download = "7-Day-Fat-Loss-Blueprint.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
       setSubmitted(true);
-    } catch (error) {
-      console.error("Lead Magnet Error:", error);
-      alert("Something went wrong. Please try again.");
+    } catch {
+      setErrorMsg("Something went wrong. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -165,6 +155,9 @@ export function LeadMagnet() {
                     )}
                   </Button>
                 </form>
+                {errorMsg && (
+                  <p className="text-sm text-red-500 font-medium">{errorMsg}</p>
+                )}
                 <div className="mt-5 flex flex-wrap items-center justify-center md:justify-start gap-5 text-xs md:text-sm text-muted-foreground/60 font-medium">
                   <span className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-4 h-4 text-accent/50" /> No
