@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { X } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import Script from "next/script";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
@@ -11,28 +12,47 @@ interface BookingModalProps {
   onClose?: () => void;
 }
 
-const TIME_SLOTS = [
-  "09:00 AM",
-  "10:00 AM",
-  "11:00 AM",
-  "12:00 PM",
-  "02:00 PM",
-  "03:00 PM",
-  "04:00 PM",
-  "05:00 PM",
-];
+// const TIME_SLOTS = [
+//   "09:00 AM",
+//   "10:00 AM",
+//   "11:00 AM",
+//   "12:00 PM",
+//   "02:00 PM",
+//   "03:00 PM",
+//   "04:00 PM",
+//   "05:00 PM",
+// ];
 
 export function BookingModal({ onClose }: BookingModalProps) {
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
+  // const [selectedDate, setSelectedDate] = useState("");
+  // const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
+  // const [loading, setLoading] = useState(false);
+  // const formRef = useRef<HTMLFormElement>(null);
 
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-
   const isOpen = searchParams.get("booking") === "true";
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    let interval: any;
+
+    if (isOpen) {
+      interval = setInterval(() => {
+        if ((window as any).Tally) {
+          (window as any).Tally.loadEmbeds();
+          clearInterval(interval);
+        }
+      }, 100);
+    }
+
+    return () => clearInterval(interval);
+  }, [isOpen]);
 
   const handleClose = () => {
     // Navigate back to the same page without the search param
@@ -44,57 +64,57 @@ export function BookingModal({ onClose }: BookingModalProps) {
 
   if (!isOpen) return null;
 
-  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedDate(e.target.value);
-    setSelectedSlot(null); // Reset slot on date change
-  };
+  // const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setSelectedDate(e.target.value);
+  //   setSelectedSlot(null); // Reset slot on date change
+  // };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
 
-    if (!selectedSlot) {
-      alert("Please select a time slot");
-      return;
-    }
+  //   if (!selectedSlot) {
+  //     alert("Please select a time slot");
+  //     return;
+  //   }
 
-    if (!formRef.current) return;
+  //   if (!formRef.current) return;
 
-    setLoading(true);
+  //   setLoading(true);
 
-    const formData = new FormData(formRef.current);
+  //   const formData = new FormData(formRef.current);
 
-    // Construct data object matching the template parameters
-    const templateParams = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      date: selectedDate,
-      time: selectedSlot,
-      service: formData.get("service"),
-    };
+  //   // Construct data object matching the template parameters
+  //   const templateParams = {
+  //     name: formData.get("name"),
+  //     email: formData.get("email"),
+  //     phone: formData.get("phone"),
+  //     date: selectedDate,
+  //     time: selectedSlot,
+  //     service: formData.get("service"),
+  //   };
 
-    try {
-      await emailjs.send(
-        "service_7quctin",
-        "template_e80zpbp",
-        templateParams,
-        { publicKey: "e7R7kSAq67Y8B2FZ4" },
-      );
+  //   try {
+  //     await emailjs.send(
+  //       "service_7quctin",
+  //       "template_e80zpbp",
+  //       templateParams,
+  //       { publicKey: "e7R7kSAq67Y8B2FZ4" },
+  //     );
 
-      alert(
-        `✅ Appointment booked!\n\nDate: ${selectedDate}\nTime: ${selectedSlot}`,
-      );
-      formRef.current.reset();
-      setSelectedDate("");
-      setSelectedSlot(null);
-      handleClose();
-    } catch (error) {
-      console.error("EmailJS Error:", error);
-      alert("❌ Failed to send email. Try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  //     alert(
+  //       `✅ Appointment booked!\n\nDate: ${selectedDate}\nTime: ${selectedSlot}`,
+  //     );
+  //     formRef.current.reset();
+  //     setSelectedDate("");
+  //     setSelectedSlot(null);
+  //     handleClose();
+  //   } catch (error) {
+  //     console.error("EmailJS Error:", error);
+  //     alert("❌ Failed to send email. Try again.");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
@@ -110,24 +130,37 @@ export function BookingModal({ onClose }: BookingModalProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
-        className="relative w-full max-w-[420px] bg-card rounded-3xl p-6 shadow-2xl animate-in fade-in zoom-in-95 duration-200 border border-border"
+        className="relative w-full max-w-[580px] h-[90vh] bg-card rounded-3xl p-6 shadow-2xl animate-in fade-in zoom-in-95 duration-200 border border-border"
       >
-        <button
-          onClick={handleClose}
-          aria-label="Close booking modal"
-          className="absolute top-5 right-5 text-muted-foreground hover:text-red-500 transition-colors"
-        >
-          <X size={24} />
-        </button>
-
+        {
+          <button
+            onClick={handleClose}
+            aria-label="Close booking modal"
+            className="absolute top-5 left-5 text-muted-foreground hover:text-red-500 transition-colors"
+          >
+            <X size={24} />
+          </button>
+          /*
         <h3
           id="modal-title"
           className="text-xl font-bold mb-6 text-foreground pr-8"
         >
           Book Your Free Strategy Call
-        </h3>
+        </h3> */
+        }
 
-        <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+        <div className="scale-90 origin-top w-full h-full overflow-y-auto no-scrollbar">
+          {mounted && (
+            <iframe
+              data-tally-src="https://tally.so/r/lb6pVV"
+              width="100%"
+              height="100%"
+              className="border-0"
+            />
+          )}
+        </div>
+
+        {/* <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
           <input
             name="name"
             type="text"
@@ -197,7 +230,7 @@ export function BookingModal({ onClose }: BookingModalProps) {
           >
             {loading ? "Booking..." : "Reserve My Spot"}
           </Button>
-        </form>
+    </form> */}
       </div>
     </div>
   );
