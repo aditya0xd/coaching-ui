@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Personalized training, sustainable nutrition, and proven systems designed to help you build strength, lose fat, and stay consistent.",
   openGraph: {
-    title: "Anthony Bell | Online Fitness Coach",
+    title: "Samuel Fernandez | Online Fitness Coach",
     description:
       "Transform your body with personalized training and nutrition systems. No crash diets, just results.",
     type: "website",
